@@ -42,6 +42,7 @@ pub enum Algorithm {
     PS512,
 
     /// Edwards-curve Digital Signature Algorithm (EdDSA)
+    #[serde(rename = "ed25519-nkey")]
     EdDSA,
 }
 
@@ -61,6 +62,7 @@ impl FromStr for Algorithm {
             "PS512" => Ok(Algorithm::PS512),
             "RS512" => Ok(Algorithm::RS512),
             "EdDSA" => Ok(Algorithm::EdDSA),
+            "ed25519-nkey" => Ok(Algorithm::EdDSA),
             _ => Err(ErrorKind::InvalidAlgorithmName.into()),
         }
     }
@@ -100,6 +102,7 @@ mod tests {
         assert!(Algorithm::from_str("PS256").is_ok());
         assert!(Algorithm::from_str("PS384").is_ok());
         assert!(Algorithm::from_str("PS512").is_ok());
+        assert!(Algorithm::from_str("ed25519-nkey").is_ok());
         assert!(Algorithm::from_str("").is_err());
     }
 }

@@ -206,6 +206,7 @@ impl FromStr for KeyAlgorithm {
             "PS512" => Ok(KeyAlgorithm::PS512),
             "RS512" => Ok(KeyAlgorithm::RS512),
             "EdDSA" => Ok(KeyAlgorithm::EdDSA),
+            "ed25519-nkey" => Ok(KeyAlgorithm::EdDSA),
             "RSA1_5" => Ok(KeyAlgorithm::RSA1_5),
             "RSA-OAEP" => Ok(KeyAlgorithm::RSA_OAEP),
             "RSA-OAEP-256" => Ok(KeyAlgorithm::RSA_OAEP_256),
